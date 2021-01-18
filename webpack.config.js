@@ -23,28 +23,28 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       {
-        test: /\.(png|svg|jpe?g|gif|mp3|wav)$/,
+        test: /\.(png|svg|jpe?g|gif|mp3|wav|flac|ogg)$/,
         use: [
           'file-loader',
         ],
       },
-    ]
+    ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Space Shooter'
+      title: 'Space Shooter',
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: './src/assets',
-          to: 'dist'
-        }
-      ]
+          from: path.resolve(__dirname, 'src/assets'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
@@ -56,6 +56,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 8080
-  }
-}
+    port: 8080,
+  },
+};
