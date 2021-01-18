@@ -6,4 +6,27 @@ class Player extends Entity {
     this.setData('speed', 200);
     this.play('player');
   }
+
+  moveUp() {
+    this.body.velocity.y = -this.getData('speed');
+  }
+
+  moveDown() {
+    this.body.velocity.y = this.getData('speed');
+  }
+
+  moveLeft() {
+    this.body.velocity.x = -this.getData('speed');
+  }
+
+  moveRight() {
+    this.body.velocity.x = this.getData('speed');
+  }
+
+  update() {
+    this.body.setVelocity(1, 0);
+
+    this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
+    this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
+  }
 }
