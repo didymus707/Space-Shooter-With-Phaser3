@@ -58,7 +58,7 @@ export default class GameScene extends Phaser.Scene {
       callback: () => {
         const enemy = new GunShip(
           this,
-          0,
+          this.game.config.width,
           Phaser.Math.Between(0, this.game.config.height),
         );
         this.enemies.add(enemy);
