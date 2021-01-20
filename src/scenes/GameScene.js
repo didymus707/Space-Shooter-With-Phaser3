@@ -15,8 +15,6 @@ export default class GameScene extends Phaser.Scene {
     this.add.image(400, 100, 'starBg1');
     this.add.image(400, 300, 'starBg2');
     this.add.image(300, 200, 'nebula1').setOrigin(0.1);
-    this.add.image(500, 200, 'shot1').setScale(2).setOrigin(0.1);
-    this.add.image(300, 150, 'shot2').setOrigin(0.1);
     this.add.image(600, 280, 'astroy1').setScale(0.09).setOrigin(0.1);
     this.add.image(400, 100, 'astroy1').setScale(0.09).setOrigin(0.1);
     // this.add.image(600, 280, 'enemy2').setScale(0.4).setAngle(-90);
@@ -68,16 +66,16 @@ export default class GameScene extends Phaser.Scene {
               Phaser.Math.Between(0, this.game.config.height),
             ).setScale(0.05);
           }
-        } else if (Phaser.Math.Between(0, 10) >= 7) {
-          if (this.getEnemiesByType('AlienShip').length < 3) {
+        } else if (Phaser.Math.Between(0, 10) >= 4) {
+          if (this.getEnemiesByType('AlienShip').length < 4) {
             enemy = new AlienShip(
               this,
               this.game.config.width,
               Phaser.Math.Between(0, this.game.config.height),
             ).setScale(0.07);
           }
-        } else if (Phaser.Math.Between(0, 10) >= 7) {
-          if (this.getEnemiesByType('BossShip') <= 2) {
+        } else if (Phaser.Math.Between(0, 10) >= 6) {
+          if (this.getEnemiesByType('BossShip') < 3) {
             enemy = new BossShip(
               this,
               this.game.config.width,
@@ -127,6 +125,9 @@ export default class GameScene extends Phaser.Scene {
       this.player.moveRight();
     }
 
-    // this.cameras.main.startFollow(this.player);
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
+      const enemy = this.enemies.getChildren()[i];
+      enemy.update();
+    }
   }
 }
