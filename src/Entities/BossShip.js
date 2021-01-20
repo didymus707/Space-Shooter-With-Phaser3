@@ -15,7 +15,7 @@ export default class BossShip extends Entity {
           this.x,
           this.y,
         );
-        laser.setScale(0.5);
+        laser.setScale(0.3);
         laser.setAngle(90);
         this.scene.enemyLasers.add(laser);
       },
