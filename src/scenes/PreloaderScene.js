@@ -22,7 +22,6 @@ import exp1 from '../assets/explosion/exp1.jpg';
 import exp2 from '../assets/explosion/exp2.png';
 import exp3 from '../assets/explosion/exp3.png';
 import exp4 from '../assets/explosion/exp4.jpg';
-import exp5 from '../assets/explosion/exp5.png';
 import shot1 from '../assets/projectiles/shot1.svg';
 import shot2 from '../assets/projectiles/shot2.png';
 import shot11 from '../assets/projectiles/shot11.png';
@@ -34,6 +33,9 @@ import player from '../assets/Ships/player.png';
 import sndExplode from '../assets/explosion/sndExplode.mp3';
 import sndExplode0 from '../assets/explosion/sndExplode0.wav';
 import sndExplode1 from '../assets/explosion/sndExplode1.wav';
+import expAlien from '../assets/explosion/expAlien.flac';
+import expBoss from '../assets/explosion/expBoss.flac';
+import expBboss from '../assets/explosion/expBboss.flac';
 import sndBtnOver from '../assets/explosion/sndBtnOver.wav';
 import sndBtnDown from '../assets/explosion/sndBtnDown.wav';
 import sndLaser from '../assets/laser/shoot.mp3';
@@ -148,32 +150,35 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // explosion
     this.load.spritesheet('exp0', exp0, {
-      frameWidth: 16,
-      frameHeight: 16,
+      frameWidth: 80,
+      frameHeight: 80,
     });
+
     this.load.spritesheet('exp1', exp1, {
       frameWidth: 16,
       frameHeight: 16,
     });
+
     this.load.spritesheet('exp2', exp2, {
-      frameWidth: 16,
-      frameHeight: 16,
+      frameWidth: 32,
+      frameHeight: 32,
     });
+
     this.load.spritesheet('exp3', exp3, {
-      frameWidth: 16,
-      frameHeight: 16,
+      frameWidth: 88,
+      frameHeight: 88,
     });
+
     this.load.spritesheet('exp4', exp4, {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
-    this.load.spritesheet('exp5', exp5, {
-      frameWidth: 16,
-      frameHeight: 16,
+      frameWidth: 104,
+      frameHeight: 104,
     });
 
     // ateroids
-    this.load.image('astroy1', astro);
+    this.load.spritesheet('astroy1', astro, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
 
     // laser objects
     this.load.image('shot1', shot1);
@@ -193,6 +198,9 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('sndExplode', [sndExplode]);
     this.load.audio('sndExplode0', [sndExplode0]);
     this.load.audio('sndExplode1', [sndExplode1]);
+    this.load.audio('expAlien', [expAlien]);
+    this.load.audio('expBoss', [expBoss]);
+    this.load.audio('expBboss', [expBboss]);
     this.load.audio('sndBtnOver', [sndBtnOver]);
     this.load.audio('sndBtnDown', [sndBtnDown]);
 
