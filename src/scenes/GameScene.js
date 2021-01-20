@@ -125,6 +125,13 @@ export default class GameScene extends Phaser.Scene {
       this.player.moveRight();
     }
 
+    if (this.keySpace.isDown) {
+      this.player.setData('isShooting', true);
+    } else {
+      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+      this.player.setData('isShooting', false);
+    }
+
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
       enemy.update();
