@@ -82,14 +82,14 @@ export default class GameScene extends Phaser.Scene {
               this,
               this.game.config.width,
               Phaser.Math.Between(0, this.game.config.height),
-            ).setScale(0.9).setAngle(-90);
+            ).setScale(0.5).setAngle(-90);
           }
         } else {
           enemy = new BigBossShip(
             this,
             this.game.config.width,
             Phaser.Math.Between(0, this.game.config.height),
-          ).setScale(1).setAngle(-90);
+          ).setScale(0.5).setAngle(-90);
         }
 
         if (enemy !== null) {

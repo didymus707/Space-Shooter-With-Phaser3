@@ -2,7 +2,7 @@ import Entity from '../Entity';
 
 export default class BossLaser extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'shotbig');
+    super(scene, x, y, 'shot1');
     this.body.velocity.x -= 400;
   }
 }

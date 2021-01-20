@@ -15,7 +15,7 @@ export default class BoatShip extends Entity {
           this.x,
           this.y,
         );
-        laser.setAngle(-90);
+        laser.setAngle(180);
         this.scene.enemyLasers.add(laser);
       },
       callbackScope: this,
