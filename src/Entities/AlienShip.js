@@ -8,14 +8,14 @@ export default class AlienShip extends Entity {
     this.body.velocity.x -= Phaser.Math.Between(50, 100);
 
     this.shootTimer = this.scene.time.addEvent({
-      delay: 1500,
+      delay: 2500,
       callback: () => {
         const laser = new AlienLaser(
           this.scene,
           this.x,
           this.y,
         );
-        laser.setScale(2);
+        laser.setScale(0.1);
         laser.setAngle(-90);
         this.scene.enemyLasers.add(laser);
       },
