@@ -15,14 +15,50 @@ export default class GameScene extends Phaser.Scene {
     this.add.image(400, 100, 'starBg1');
     this.add.image(400, 300, 'starBg2');
     this.add.image(300, 200, 'nebula1').setOrigin(0.1);
-    this.add.image(600, 280, 'astroy1').setScale(0.09).setOrigin(0.1);
-    this.add.image(400, 100, 'astroy1').setScale(0.09).setOrigin(0.1);
+
+    this.anims.create({
+      key: 'exp0',
+      frames: this.anims.generateFrameNumbers('explosion6'),
+      frameRate: 80,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp1',
+      frames: this.anims.generateFrameNumbers('explosion6'),
+      frameRate: 20,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp2',
+      frames: this.anims.generateFrameNumbers('explosion6'),
+      frameRate: 40,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp3',
+      frames: this.anims.generateFrameNumbers('explosion6'),
+      frameRate: 80,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp4',
+      frames: this.anims.generateFrameNumbers('explosion6'),
+      frameRate: 120,
+      repeat: 0,
+    });
 
     this.sfx = {
       explosions: [
         this.sound.add('sndExplode'),
         this.sound.add('sndExplode0'),
         this.sound.add('sndExplode1'),
+        this.sound.add('expAlien'),
+        this.sound.add('expBoss'),
+        this.sound.add('expBboss'),
       ],
       laser: this.sound.add('sndLaser'),
     };
