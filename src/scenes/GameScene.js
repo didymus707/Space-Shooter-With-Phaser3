@@ -1,6 +1,10 @@
 import Phaser from 'phaser';
 import Player from '../Entities/Player';
-import GunShip from '../Entities/GunShip';
+import BoatShip from '../Entities/BoatShip';
+import ChaserShip from '../Entities/ChaserShip';
+import AlienShip from '../Entities/AlienShip';
+import BossShip from '../Entities/BossShip';
+import BigBossShip from '../Entities/BigBossShip';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -15,15 +19,7 @@ export default class GameScene extends Phaser.Scene {
     this.add.image(300, 150, 'shot2').setOrigin(0.1);
     this.add.image(600, 280, 'astroy1').setScale(0.09).setOrigin(0.1);
     this.add.image(400, 100, 'astroy1').setScale(0.09).setOrigin(0.1);
-    this.add.image(600, 280, 'enemy2').setScale(0.4).setAngle(-90);
-    // const player = this.physics.add.image(85, 280, 'player').setScale(0.08).setOrigin(1, 0.1);
-    // player.setCollideWorldBounds(true);
-
-    // this.anims.create({
-    //   key: 'player',
-    //   frames: this.anims.generateFrameNumbers('player'),
-    //   frameRate: 20,
-    // });
+    // this.add.image(600, 280, 'enemy2').setScale(0.4).setAngle(-90);
 
     this.sfx = {
       explosions: [
@@ -54,18 +50,66 @@ export default class GameScene extends Phaser.Scene {
     this.playerLasers = this.add.group();
 
     this.time.addEvent({
-      delay: 100,
+      delay: 1700,
       callback: () => {
-        const enemy = new GunShip(
-          this,
-          this.game.config.width,
-          Phaser.Math.Between(0, this.game.config.height),
-        );
-        this.enemies.add(enemy);
+        let enemy = null;
+
+        if (Phaser.Math.Between(0, 10) >= 3) {
+          enemy = new BoatShip(
+            this,
+            this.game.config.width,
+            Phaser.Math.Between(0, this.game.config.height),
+          );
+        } else if (Phaser.Math.Between(0, 10) >= 5) {
+          if (this.getEnemiesByType('ChaserShip').length < 5) {
+            enemy = new ChaserShip(
+              this,
+              this.game.config.width,
+              Phaser.Math.Between(0, this.game.config.height),
+            ).setScale(0.05);
+          }
+        } else if (Phaser.Math.Between(0, 10) >= 7) {
+          if (this.getEnemiesByType('AlienShip').length < 3) {
+            enemy = new AlienShip(
+              this,
+              this.game.config.width,
+              Phaser.Math.Between(0, this.game.config.height),
+            ).setScale(0.07);
+          }
+        } else if (Phaser.Math.Between(0, 10) >= 7) {
+          if (this.getEnemiesByType('BossShip') <= 2) {
+            enemy = new BossShip(
+              this,
+              this.game.config.width,
+              Phaser.Math.Between(0, this.game.config.height),
+            ).setScale(0.9).setAngle(-90);
+          }
+        } else {
+          enemy = new BigBossShip(
+            this,
+            this.game.config.width,
+            Phaser.Math.Between(0, this.game.config.height),
+          ).setScale(1).setAngle(-90);
+        }
+
+        if (enemy !== null) {
+          this.enemies.add(enemy);
+        }
       },
       callbackScope: this,
       loop: true,
     });
+  }
+
+  getEnemiesByType(type) {
+    const arr = [];
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
+      const enemy = this.enemies.getChildren()[i];
+      if (enemy.getData('type') === type) {
+        arr.push(enemy);
+      }
+    }
+    return arr;
   }
 
   update() {

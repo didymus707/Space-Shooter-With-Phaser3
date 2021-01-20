@@ -9,21 +9,20 @@ import starBg2 from '../assets/Bgs/starBg2.png';
 import nebula1 from '../assets/Stars-Nebulae/Nebula1.png';
 import nebula2 from '../assets/Stars-Nebulae/Nebula2.png';
 import nebula3 from '../assets/Stars-Nebulae/Nebula3.png';
-import enemy1 from '../assets/Ships/enemy1.png';
-import enemy2 from '../assets/Ships/enemy2.png';
-import alien1 from '../assets/Ships/alien1.png';
-import alien2 from '../assets/Ships/alien2.png';
+import fighterjet from '../assets/Ships/fighterjet.png';
 import boat1 from '../assets/Ships/boat1.png';
 import boat2 from '../assets/Ships/boat2.png';
-import boss1 from '../assets/Ships/boss1.png';
-import boss2 from '../assets/Ships/boss2.png';
+import chaser from '../assets/Ships/chaser.png';
+import alien from '../assets/Ships/alien.png';
+import boss from '../assets/Ships/boss.png';
+import bigBoss from '../assets/Ships/bigBoss.png';
 import astroy1 from '../assets/asteroids/asteroid1.svg';
 import astroy2 from '../assets/asteroids/asteroid2.svg';
-import explosion1 from '../assets/explosion/boom01.png';
-import explosion10 from '../assets/explosion/boom10.png';
-import explosion11 from '../assets/explosion/boom11.png';
-import flame0 from '../assets/flame/flame0.png';
-import flame1 from '../assets/flame/flame1.png';
+// import explosion1 from '../assets/explosion/boom01.png';
+// import explosion10 from '../assets/explosion/boom10.png';
+// import explosion11 from '../assets/explosion/boom11.png';
+// import flame0 from '../assets/flame/flame0.png';
+// import flame1 from '../assets/flame/flame1.png';
 import shot1 from '../assets/projectiles/shot1.svg';
 import shot2 from '../assets/projectiles/shot2.svg';
 import shotbig from '../assets/projectiles/shotbig.png';
@@ -139,14 +138,13 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('nebula3', nebula3);
 
     // enemy objects
-    this.load.image('enemy1', enemy1);
-    this.load.image('enemy2', enemy2);
-    this.load.image('alien1', alien1);
-    this.load.image('alien2', alien2);
     this.load.image('boat1', boat1);
     this.load.image('boat2', boat2);
-    this.load.image('boss1', boss1);
-    this.load.image('boss2', boss2);
+    this.load.image('alien', alien);
+    this.load.image('chaser', chaser);
+    this.load.image('fighterjet', fighterjet);
+    this.load.image('boss', boss);
+    this.load.image('bigBoss', bigBoss);
 
     // ateroids
     this.load.image('astroy1', astroy1);
@@ -155,6 +153,10 @@ export default class PreloaderScene extends Phaser.Scene {
     // laser objects
     this.load.image('shot1', shot1);
     this.load.image('shot2', shot2);
+    this.load.image('shotbig', shotbig);
+    this.load.image('shotsmall', shotsmall);
+    this.load.image('shotoval', shotoval);
+    this.load.image('shotwave', shotwave);
 
     // loading audios
     this.load.audio('bgMusic', [history]);
