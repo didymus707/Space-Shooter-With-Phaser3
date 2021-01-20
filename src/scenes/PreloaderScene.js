@@ -16,15 +16,16 @@ import chaser from '../assets/Ships/chaser.png';
 import alien from '../assets/Ships/alien.png';
 import boss from '../assets/Ships/boss.png';
 import bigBoss from '../assets/Ships/bigBoss.png';
-import astroy1 from '../assets/asteroids/asteroid1.svg';
-import astroy2 from '../assets/asteroids/asteroid2.svg';
-// import explosion1 from '../assets/explosion/boom01.png';
-// import explosion10 from '../assets/explosion/boom10.png';
-// import explosion11 from '../assets/explosion/boom11.png';
-// import flame0 from '../assets/flame/flame0.png';
-// import flame1 from '../assets/flame/flame1.png';
+import astro from '../assets/asteroids/astro.png';
+import exp0 from '../assets/explosion/exp0.png';
+import exp1 from '../assets/explosion/exp1.jpg';
+import exp2 from '../assets/explosion/exp2.png';
+import exp3 from '../assets/explosion/exp3.png';
+import exp4 from '../assets/explosion/exp4.jpg';
+import exp5 from '../assets/explosion/exp5.png';
 import shot1 from '../assets/projectiles/shot1.svg';
-import shot2 from '../assets/projectiles/shot2.svg';
+import shot2 from '../assets/projectiles/shot2.png';
+import shot11 from '../assets/projectiles/shot11.png';
 import shotbig from '../assets/projectiles/shotbig.png';
 import shotoval from '../assets/projectiles/shotoval.png';
 import shotsmall from '../assets/projectiles/shotsmall.png';
@@ -46,7 +47,6 @@ export default class PreloaderScene extends Phaser.Scene {
     super('Preloader');
     this.readyCount = undefined;
   }
-
 
   init() {
     this.readyCount = 0;
@@ -146,13 +146,39 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('boss', boss);
     this.load.image('bigBoss', bigBoss);
 
+    // explosion
+    this.load.spritesheet('exp0', exp0, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+    this.load.spritesheet('exp1', exp1, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+    this.load.spritesheet('exp2', exp2, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+    this.load.spritesheet('exp3', exp3, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+    this.load.spritesheet('exp4', exp4, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+    this.load.spritesheet('exp5', exp5, {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+
     // ateroids
-    this.load.image('astroy1', astroy1);
-    this.load.image('astroy2', astroy2);
+    this.load.image('astroy1', astro);
 
     // laser objects
     this.load.image('shot1', shot1);
     this.load.image('shot2', shot2);
+    this.load.image('shot11', shot11);
     this.load.image('shotbig', shotbig);
     this.load.image('shotsmall', shotsmall);
     this.load.image('shotoval', shotoval);

@@ -5,7 +5,6 @@ import ChaserShip from '../Entities/ChaserShip';
 import AlienShip from '../Entities/AlienShip';
 import BossShip from '../Entities/BossShip';
 import BigBossShip from '../Entities/BigBossShip';
-import PlayerLaser from '../Entities/Weapons/PlayerLaser';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -18,7 +17,6 @@ export default class GameScene extends Phaser.Scene {
     this.add.image(300, 200, 'nebula1').setOrigin(0.1);
     this.add.image(600, 280, 'astroy1').setScale(0.09).setOrigin(0.1);
     this.add.image(400, 100, 'astroy1').setScale(0.09).setOrigin(0.1);
-    // this.add.image(600, 280, 'enemy2').setScale(0.4).setAngle(-90);
 
     this.sfx = {
       explosions: [
@@ -53,7 +51,7 @@ export default class GameScene extends Phaser.Scene {
         delay: 1700,
         callback: () => {
           let enemy = null;
-  
+
           if (Phaser.Math.Between(0, 10) >= 3) {
             enemy = new BoatShip(
               this,
@@ -91,7 +89,7 @@ export default class GameScene extends Phaser.Scene {
               Phaser.Math.Between(0, this.game.config.height),
             ).setScale(0.5).setAngle(-90);
           }
-  
+
           if (enemy !== null) {
             this.enemies.add(enemy);
           }
@@ -104,6 +102,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
       if (enemy) {
         if (enemy.onDestroy !== undefined) enemy.onDestroy();
+
         enemy.explode(true);
         playerLaser.destroy();
       }
