@@ -103,9 +103,23 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerLasers, this.enemies, (playerLaser, enemy) => {
       if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
-        }
+        if (enemy.onDestroy !== undefined) enemy.onDestroy();
+        enemy.explode(true);
+        playerLaser.destroy();
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
+      if (!player.getData('isDead') && !enemy.getData('isDead')) {
+        player.explode(false);
+        enemy.explode();
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemyLasers, (player, laser) => {
+      if (!player.getData('isDead') && !laser.getData('isDead')) {
+        player.explode(false);
+        laser.explode();
       }
     });
   }
@@ -114,9 +128,7 @@ export default class GameScene extends Phaser.Scene {
     const arr = [];
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
-      if (enemy.getData('type') === type) {
-        arr.push(enemy);
-      }
+      if (enemy.getData('type') === type) arr.push(enemy);
     }
     return arr;
   }
