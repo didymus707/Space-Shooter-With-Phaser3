@@ -3,12 +3,16 @@ import bb1 from '../assets/ui/blue_button02.png';
 import bb2 from '../assets/ui/blue_button03.png';
 import box from '../assets/ui/grey_box.png';
 import checkBox from '../assets/ui/blue_boxCheckmark.png';
+import bg from '../assets/Bgs/bg.png';
 import bg1 from '../assets/Bgs/bg1.jpg';
-import starBg1 from '../assets/Bgs/starBg1.png';
-import starBg2 from '../assets/Bgs/starBg2.png';
-import nebula1 from '../assets/Stars-Nebulae/Nebula1.png';
-import nebula2 from '../assets/Stars-Nebulae/Nebula2.png';
-import nebula3 from '../assets/Stars-Nebulae/Nebula3.png';
+import bg2 from '../assets/Bgs/bg2.png';
+import bg3 from '../assets/Bgs/bg3.png';
+import bg4 from '../assets/Bgs/bg4.png';
+import bg5 from '../assets/Bgs/bg5.png';
+import bg6 from '../assets/Bgs/bg6.png';
+import bg7 from '../assets/Bgs/bg7.png';
+import bg8 from '../assets/Bgs/bg8.png';
+import bg9 from '../assets/Bgs/bg9.png';
 import fighterjet from '../assets/Ships/fighterjet.png';
 import boat1 from '../assets/Ships/boat1.png';
 import chaser from '../assets/Ships/chaser.png';
@@ -126,12 +130,16 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('checkBox', checkBox);
 
     // background objects
+    this.load.image('bg', bg);
     this.load.image('bg1', bg1);
-    this.load.image('starBg1', starBg1);
-    this.load.image('starBg2', starBg2);
-    this.load.image('nebula1', nebula1);
-    this.load.image('nebula2', nebula2);
-    this.load.image('nebula3', nebula3);
+    this.load.image('bg2', bg2);
+    this.load.image('bg3', bg3);
+    this.load.image('bg4', bg4);
+    this.load.image('bg5', bg5);
+    this.load.image('bg6', bg6);
+    this.load.image('bg7', bg7);
+    this.load.image('bg8', bg8);
+    this.load.image('bg9', bg9);
 
     // enemy objects
     this.load.image('boat1', boat1);

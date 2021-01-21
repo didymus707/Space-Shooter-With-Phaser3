@@ -5,6 +5,7 @@ import ChaserShip from '../Entities/ChaserShip';
 import AlienShip from '../Entities/AlienShip';
 import BossShip from '../Entities/BossShip';
 import BigBossShip from '../Entities/BigBossShip';
+import ScrollingBackground from '../utilities/ScrollingBackground';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -24,33 +25,37 @@ export default class GameScene extends Phaser.Scene {
       hideOnComplete: true,
     });
 
-    // this.anims.create({
-    //   key: 'exp1',
-    //   frames: this.anims.generateFrameNumbers('exp1'),
-    //   frameRate: 120,
-    //   repeat: 0,
-    // });
+    this.anims.create({
+      key: 'exp1',
+      frames: this.anims.generateFrameNumbers('exp1'),
+      frameRate: 120,
+      repeat: 0,
+      hideOnComplete: true,
+    });
 
-    // this.anims.create({
-    //   key: 'exp2',
-    //   frames: this.anims.generateFrameNumbers('exp2'),
-    //   frameRate: 120,
-    //   repeat: 0,
-    // });
+    this.anims.create({
+      key: 'exp2',
+      frames: this.anims.generateFrameNumbers('exp2'),
+      frameRate: 120,
+      repeat: 0,
+      hideOnComplete: true,
+    });
 
-    // this.anims.create({
-    //   key: 'exp3',
-    //   frames: this.anims.generateFrameNumbers('exp3'),
-    //   frameRate: 120,
-    //   repeat: 0,
-    // });
+    this.anims.create({
+      key: 'exp3',
+      frames: this.anims.generateFrameNumbers('exp3'),
+      frameRate: 120,
+      repeat: 0,
+      hideOnComplete: true,
+    });
 
-    // this.anims.create({
-    //   key: 'exp4',
-    //   frames: this.anims.generateFrameNumbers('exp4'),
-    //   frameRate: 120,
-    //   repeat: 0,
-    // });
+    this.anims.create({
+      key: 'exp4',
+      frames: this.anims.generateFrameNumbers('exp4'),
+      frameRate: 120,
+      repeat: 0,
+      hideOnComplete: true,
+    });
 
     this.sfx = {
       explosions: [
@@ -60,6 +65,13 @@ export default class GameScene extends Phaser.Scene {
       ],
       laser: this.sound.add('sndLaser'),
     };
+
+    this.gameBackgrounds = ['bg', 'bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7', 'bg8', 'bg9'];
+    this.backgrounds = [];
+    for (let i = 0; i < 5; i += 1) {
+      const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);
+      this.backgrounds.push(bg);
+    }
 
     this.player = new Player(
       this,
