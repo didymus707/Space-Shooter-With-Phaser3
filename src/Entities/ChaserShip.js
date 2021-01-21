@@ -11,6 +11,7 @@ export default class ChaserShip extends Entity {
       CHASE: 'CHASE',
     };
     this.state = this.states.MOVE_DOWN;
+    this.play('chaser');
   }
 
   update() {

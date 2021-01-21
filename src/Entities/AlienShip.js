@@ -15,13 +15,14 @@ export default class AlienShip extends Entity {
           this.x,
           this.y,
         );
-        // laser.setScale(0.1);
         laser.setAngle(180);
         this.scene.enemyLasers.add(laser);
       },
       callbackScope: this,
       loop: true,
     });
+
+    this.play('alien');
   }
 
   onDestroy() {

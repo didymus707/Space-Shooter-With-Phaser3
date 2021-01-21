@@ -6,6 +6,7 @@ export default class BoatShip extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, 'boat1', 'BoatShip');
     this.body.velocity.x -= Phaser.Math.Between(20, 50);
+    this.play('boat1');
 
     this.shootTimer = this.scene.time.addEvent({
       delay: 4500,

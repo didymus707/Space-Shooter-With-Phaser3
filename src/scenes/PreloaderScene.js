@@ -11,7 +11,6 @@ import nebula2 from '../assets/Stars-Nebulae/Nebula2.png';
 import nebula3 from '../assets/Stars-Nebulae/Nebula3.png';
 import fighterjet from '../assets/Ships/fighterjet.png';
 import boat1 from '../assets/Ships/boat1.png';
-import boat2 from '../assets/Ships/boat2.png';
 import chaser from '../assets/Ships/chaser.png';
 import alien from '../assets/Ships/alien.png';
 import boss from '../assets/Ships/boss.png';
@@ -31,10 +30,11 @@ import shotsmall from '../assets/projectiles/shotsmall.png';
 import shotwave from '../assets/projectiles/shotwave.png';
 import player from '../assets/Ships/player.png';
 import sndExplode from '../assets/explosion/sndExplode.mp3';
+import sndExplode0 from '../assets/explosion/sndExplode0.wav';
 import sndExplode1 from '../assets/explosion/sndExplode1.wav';
-import expAlien from '../assets/explosion/expAlien.flac';
-import expBoss from '../assets/explosion/expBoss.flac';
-import expBboss from '../assets/explosion/expBboss.flac';
+// import expAlien from '../assets/explosion/expAlien.flac';
+// import expBoss from '../assets/explosion/expBoss.flac';
+// import expBboss from '../assets/explosion/expBboss.flac';
 import sndBtnOver from '../assets/explosion/sndBtnOver.wav';
 import sndBtnDown from '../assets/explosion/sndBtnDown.wav';
 import sndLaser from '../assets/laser/shoot.mp3';
@@ -140,7 +140,6 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // enemy objects
     this.load.image('boat1', boat1);
-    this.load.image('boat2', boat2);
     this.load.image('alien', alien);
     this.load.image('chaser', chaser);
     this.load.image('fighterjet', fighterjet);
@@ -195,10 +194,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('odyssey', [odyssey]);
     this.load.audio('sndLaser', [sndLaser]);
     this.load.audio('sndExplode', [sndExplode]);
+    this.load.audio('sndExplode0', [sndExplode0]);
     this.load.audio('sndExplode1', [sndExplode1]);
-    this.load.audio('expAlien', [expAlien]);
-    this.load.audio('expBoss', [expBoss]);
-    this.load.audio('expBboss', [expBboss]);
+    // this.load.audio('expAlien', [expAlien]);
+    // this.load.audio('expBoss', [expBoss]);
+    // this.load.audio('expBboss', [expBboss]);
     this.load.audio('sndBtnOver', [sndBtnOver]);
     this.load.audio('sndBtnDown', [sndBtnDown]);
 

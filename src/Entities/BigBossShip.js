@@ -22,6 +22,8 @@ export default class BigBossShip extends Entity {
       callbackScope: this,
       loop: true,
     });
+
+    this.play('bigBoss');
   }
 
   onDestroy() {
