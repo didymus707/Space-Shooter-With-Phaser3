@@ -19,8 +19,9 @@ export default class GameScene extends Phaser.Scene {
     this.anims.create({
       key: 'exp0',
       frames: this.anims.generateFrameNumbers('exp0'),
-      frameRate: 40,
+      frameRate: 20,
       repeat: 0,
+      hideOnComplete: true,
     });
 
     // this.anims.create({

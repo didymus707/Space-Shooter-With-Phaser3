@@ -143,23 +143,23 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // explosion
     this.load.spritesheet('exp0', exp0, {
-      frameWidth: 32,
-      frameHeight: 32,
+      frameWidth: 64,
+      frameHeight: 64,
     });
 
     this.load.spritesheet('exp1', exp1, {
-      frameWidth: 32,
-      frameHeight: 32,
+      frameWidth: 64,
+      frameHeight: 64,
     });
 
     this.load.spritesheet('exp2', exp2, {
-      frameWidth: 32,
-      frameHeight: 32,
+      frameWidth: 64,
+      frameHeight: 64,
     });
 
     // this.load.spritesheet('exp3', exp3, {
-    //   frameWidth: 32,
-    //   frameHeight: 32,
+    //   frameWidth: 64,
+    //   frameHeight: 64,
     // });
 
     // ateroids

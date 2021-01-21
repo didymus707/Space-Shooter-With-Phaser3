@@ -18,7 +18,7 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.exp2 = this.setTexture('exp2');
       // this.exp3 = this.setTexture('exp3');
       this.expArr = ['exp0', 'exp1', 'exp2'];
-      this.play(this.expArr[Phaser.Math.Between(0, 3)]);
+      this.play(this.expArr[Phaser.Math.Between(0, 2)]);
       // this.play('exp0');
       this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
 
