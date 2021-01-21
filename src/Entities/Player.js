@@ -9,7 +9,7 @@ export default class Player extends Entity {
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
-    this.play('player');
+    // this.play('player')
   }
 
   moveUp() {
@@ -26,6 +26,14 @@ export default class Player extends Entity {
 
   moveRight() {
     this.body.velocity.x = this.getData('speed');
+  }
+
+  onDestroy() {
+    if (this.shootTimer !== undefined) {
+      if (this.shootTimer) {
+        this.shootTimer.remove(false);
+      }
+    }
   }
 
   update() {

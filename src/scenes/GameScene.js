@@ -18,47 +18,44 @@ export default class GameScene extends Phaser.Scene {
 
     this.anims.create({
       key: 'exp0',
-      frames: this.anims.generateFrameNumbers('explosion6'),
-      frameRate: 80,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: 'exp1',
-      frames: this.anims.generateFrameNumbers('explosion6'),
-      frameRate: 20,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: 'exp2',
-      frames: this.anims.generateFrameNumbers('explosion6'),
+      frames: this.anims.generateFrameNumbers('exp0'),
       frameRate: 40,
       repeat: 0,
     });
 
-    this.anims.create({
-      key: 'exp3',
-      frames: this.anims.generateFrameNumbers('explosion6'),
-      frameRate: 80,
-      repeat: 0,
-    });
+    // this.anims.create({
+    //   key: 'exp1',
+    //   frames: this.anims.generateFrameNumbers('exp1'),
+    //   frameRate: 120,
+    //   repeat: 0,
+    // });
 
-    this.anims.create({
-      key: 'exp4',
-      frames: this.anims.generateFrameNumbers('explosion6'),
-      frameRate: 120,
-      repeat: 0,
-    });
+    // this.anims.create({
+    //   key: 'exp2',
+    //   frames: this.anims.generateFrameNumbers('exp2'),
+    //   frameRate: 120,
+    //   repeat: 0,
+    // });
+
+    // this.anims.create({
+    //   key: 'exp3',
+    //   frames: this.anims.generateFrameNumbers('exp3'),
+    //   frameRate: 120,
+    //   repeat: 0,
+    // });
+
+    // this.anims.create({
+    //   key: 'exp4',
+    //   frames: this.anims.generateFrameNumbers('exp4'),
+    //   frameRate: 120,
+    //   repeat: 0,
+    // });
 
     this.sfx = {
       explosions: [
         this.sound.add('sndExplode'),
         this.sound.add('sndExplode0'),
         this.sound.add('sndExplode1'),
-        // this.sound.add('expAlien'),
-        // this.sound.add('expBoss'),
-        // this.sound.add('expBboss'),
       ],
       laser: this.sound.add('sndLaser'),
     };

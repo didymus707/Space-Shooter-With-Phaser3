@@ -22,7 +22,7 @@ export default class AlienShip extends Entity {
       loop: true,
     });
 
-    this.play('alien');
+    // this.play('alien');
   }
 
   onDestroy() {

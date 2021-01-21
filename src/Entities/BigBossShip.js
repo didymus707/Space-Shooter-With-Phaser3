@@ -23,7 +23,7 @@ export default class BigBossShip extends Entity {
       loop: true,
     });
 
-    this.play('bigBoss');
+    // this.play('bigBoss');
   }
 
   onDestroy() {

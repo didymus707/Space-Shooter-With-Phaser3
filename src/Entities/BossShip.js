@@ -23,7 +23,7 @@ export default class BossShip extends Entity {
       loop: true,
     });
 
-    this.play('boss');
+    // this.play('boss');
   }
 
   onDestroy() {
