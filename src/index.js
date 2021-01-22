@@ -6,11 +6,12 @@ import TitleScene from './scenes/TitleScene';
 import GameScene from './scenes/GameScene';
 import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
+import GameOverScene from './scenes/GameOverScene';
 
 const config = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
-  width: 1200,
+  width: 800,
   height: 600,
   physics: {
     default: 'arcade',
@@ -33,6 +34,7 @@ class Game extends Phaser.Game {
     this.scene.add('Options', OptionsScene);
     this.scene.add('Credits', CreditsScene);
     this.scene.add('Game', GameScene);
+    this.scene.add('GameOver', GameOverScene);
     this.scene.start('Boot');
   }
 }

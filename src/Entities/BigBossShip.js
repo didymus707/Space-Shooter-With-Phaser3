@@ -15,15 +15,13 @@ export default class BigBossShip extends Entity {
           this.x,
           this.y,
         );
-        laser.setScale(2);
+        laser.setScale(2.5);
         laser.setAngle(180);
         this.scene.enemyLasers.add(laser);
       },
       callbackScope: this,
       loop: true,
     });
-
-    // this.play('bigBoss');
   }
 
   onDestroy() {

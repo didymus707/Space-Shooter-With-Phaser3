@@ -22,8 +22,6 @@ export default class BossShip extends Entity {
       callbackScope: this,
       loop: true,
     });
-
-    // this.play('boss');
   }
 
   onDestroy() {

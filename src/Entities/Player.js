@@ -9,7 +9,6 @@ export default class Player extends Entity {
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
-    // this.play('player')
   }
 
   moveUp() {
@@ -29,11 +28,14 @@ export default class Player extends Entity {
   }
 
   onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-      }
-    }
+    this.scene.time.addEvent({ // go to game over scene
+      delay: 1000,
+      callback: () => {
+        this.scene.scene.start('GameOver');
+      },
+      callbackScope: this,
+      loop: false,
+    });
   }
 
   update() {
@@ -45,15 +47,12 @@ export default class Player extends Entity {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1);
       } else {
         const laser = new PlayerLaser(this.scene, this.x, this.y);
-        laser.setScale(0.2).setAngle(90);
+        laser.setScale(1.8);
         this.scene.playerLasers.add(laser);
 
         this.scene.sfx.laser.play();
         this.setData('timerShootTick', 0);
       }
     }
-
-    // this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
-    // this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
   }
 }

@@ -16,14 +16,12 @@ export default class BoatShip extends Entity {
           this.y,
         );
         // eslint-disable-next-line indent
-        laser.setAngle(180);
+        laser.setScale(2.3).setAngle(180);
         this.scene.enemyLasers.add(laser);
       },
       callbackScope: this,
       loop: true,
     });
-
-    // this.play('boat1');
   }
 
   onDestroy() {

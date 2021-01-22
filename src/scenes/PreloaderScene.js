@@ -1,8 +1,11 @@
 import Phaser from 'phaser';
-import bb1 from '../assets/ui/blue_button02.png';
-import bb2 from '../assets/ui/blue_button03.png';
 import box from '../assets/ui/grey_box.png';
-import checkBox from '../assets/ui/blue_boxCheckmark.png';
+import checkbox from '../assets/ui/checkbox.png';
+import normal from '../assets/ui/normal.png';
+import hover from '../assets/ui/hover.png';
+import pressed from '../assets/ui/pressed.png';
+import mute from '../assets/ui/mute.png';
+import unmute from '../assets/ui/unmute.png';
 import bg from '../assets/Bgs/bg.png';
 import bg1 from '../assets/Bgs/bg1.jpg';
 import bg2 from '../assets/Bgs/bg2.png';
@@ -11,8 +14,6 @@ import bg4 from '../assets/Bgs/bg4.png';
 import bg5 from '../assets/Bgs/bg5.png';
 import bg6 from '../assets/Bgs/bg6.png';
 import bg7 from '../assets/Bgs/bg7.png';
-import bg8 from '../assets/Bgs/bg8.png';
-import bg9 from '../assets/Bgs/bg9.png';
 import fighterjet from '../assets/Ships/fighterjet.png';
 import boat1 from '../assets/Ships/boat1.png';
 import chaser from '../assets/Ships/chaser.png';
@@ -23,7 +24,7 @@ import astro from '../assets/asteroids/astro.png';
 import exp0 from '../assets/explosion/exp0.png';
 import exp1 from '../assets/explosion/exp1.png';
 import exp2 from '../assets/explosion/exp2.png';
-import shot1 from '../assets/projectiles/shot1.svg';
+import shot1 from '../assets/projectiles/shot1.png';
 import shot2 from '../assets/projectiles/shot2.png';
 import shot11 from '../assets/projectiles/shot11.png';
 import shotbig from '../assets/projectiles/shotbig.png';
@@ -124,10 +125,13 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     // load assets needed in our game
-    this.load.image('bb1', bb1);
-    this.load.image('bb2', bb2);
     this.load.image('box', box);
-    this.load.image('checkBox', checkBox);
+    this.load.image('checkbox', checkbox);
+    this.load.image('normal', normal);
+    this.load.image('hover', hover);
+    this.load.image('pressed', pressed);
+    this.load.image('mute', mute);
+    this.load.image('unmute', unmute);
 
     // background objects
     this.load.image('bg', bg);
@@ -138,8 +142,6 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('bg5', bg5);
     this.load.image('bg6', bg6);
     this.load.image('bg7', bg7);
-    this.load.image('bg8', bg8);
-    this.load.image('bg9', bg9);
 
     // enemy objects
     this.load.image('boat1', boat1);
