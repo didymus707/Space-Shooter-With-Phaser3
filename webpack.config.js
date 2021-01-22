@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
   entry: {
     app: './src/index.js',
   },
@@ -33,7 +32,7 @@ module.exports = {
       },
     ],
   },
-
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Space Shooter',

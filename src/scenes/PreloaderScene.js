@@ -22,8 +22,11 @@ import boss from '../assets/Ships/boss.png';
 import bigBoss from '../assets/Ships/bigBoss.png';
 import astro from '../assets/asteroids/astro.png';
 import exp0 from '../assets/explosion/exp0.png';
-import exp1 from '../assets/explosion/exp1.png';
 import exp2 from '../assets/explosion/exp2.png';
+import exp3 from '../assets/explosion/exp3.png';
+import exp4 from '../assets/explosion/exp4.png';
+import exp5 from '../assets/explosion/exp5.png';
+import exp6 from '../assets/explosion/exp6.png';
 import shot1 from '../assets/projectiles/shot1.png';
 import shot2 from '../assets/projectiles/shot2.png';
 import shot11 from '../assets/projectiles/shot11.png';
@@ -153,26 +156,36 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // explosion
     this.load.spritesheet('exp0', exp0, {
-      frameWidth: 64,
-      frameHeight: 64,
-    });
-
-    this.load.spritesheet('exp1', exp1, {
-      frameWidth: 64,
-      frameHeight: 64,
+      frameWidth: 96,
+      frameHeight: 96,
     });
 
     this.load.spritesheet('exp2', exp2, {
-      frameWidth: 64,
-      frameHeight: 64,
+      frameWidth: 96,
+      frameHeight: 96,
     });
 
-    // this.load.spritesheet('exp3', exp3, {
-    //   frameWidth: 64,
-    //   frameHeight: 64,
-    // });
+    this.load.spritesheet('exp3', exp3, {
+      frameWidth: 96,
+      frameHeight: 96,
+    });
 
-    // ateroids
+    this.load.spritesheet('exp4', exp4, {
+      frameWidth: 96,
+      frameHeight: 96,
+    });
+
+    this.load.spritesheet('exp5', exp5, {
+      frameWidth: 96,
+      frameHeight: 96,
+    });
+
+    this.load.spritesheet('exp6', exp6, {
+      frameWidth: 96,
+      frameHeight: 96,
+    });
+
+    // asteroids
     this.load.spritesheet('astroy1', astro, {
       frameWidth: 32,
       frameHeight: 32,

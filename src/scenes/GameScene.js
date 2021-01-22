@@ -13,30 +13,49 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    // this.add.image(400, 100, 'starBg1');
-    // this.add.image(400, 300, 'starBg2');
-    // this.add.image(300, 200, 'nebula1').setOrigin(0.1);
-
     this.anims.create({
-      key: 'explode',
+      key: 'exp0',
       frames: this.anims.generateFrameNumbers('exp0'),
-      frameRate: 120,
+      frameRate: 30,
       repeat: 0,
     });
 
     this.anims.create({
-      key: 'explode',
-      frames: this.anims.generateFrameNumbers('exp1'),
-      frameRate: 120,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: 'explode',
+      key: 'exp2',
       frames: this.anims.generateFrameNumbers('exp2'),
-      frameRate: 120,
+      frameRate: 30,
       repeat: 0,
     });
+
+    this.anims.create({
+      key: 'exp3',
+      frames: this.anims.generateFrameNumbers('exp2'),
+      frameRate: 30,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp4',
+      frames: this.anims.generateFrameNumbers('exp2'),
+      frameRate: 30,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp5',
+      frames: this.anims.generateFrameNumbers('exp2'),
+      frameRate: 30,
+      repeat: 0,
+    });
+
+    this.anims.create({
+      key: 'exp6',
+      frames: this.anims.generateFrameNumbers('exp2'),
+      frameRate: 30,
+      repeat: 0,
+    });
+
+
 
     this.sfx = {
       explosions: [
@@ -148,6 +167,13 @@ export default class GameScene extends Phaser.Scene {
         laser.explode();
       }
     });
+
+    this.score = 0;
+    this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
+  }
+
+  updateScore(enemy) {
+
   }
 
   getEnemiesByType(type) {

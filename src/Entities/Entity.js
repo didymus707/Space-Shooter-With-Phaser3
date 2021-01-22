@@ -14,9 +14,12 @@ export default class Entity extends Phaser.GameObjects.Sprite {
   explode(canDestroy) {
     if (!this.getData('isDead')) {
       this.exp0 = this.setTexture('exp0');
-      this.exp1 = this.setTexture('exp1');
       this.exp2 = this.setTexture('exp2');
-      this.expArr = ['exp0', 'exp1', 'exp2'];
+      this.exp3 = this.setTexture('exp3');
+      this.exp4 = this.setTexture('exp4');
+      this.exp5 = this.setTexture('exp5');
+      this.exp6 = this.setTexture('exp6');
+      this.expArr = ['exp0', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6'];
       const result = this.expArr[Phaser.Math.Between(0, 2)];
       console.log(result);
       this.play(result);
@@ -30,8 +33,9 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.body.setVelocity(0, 0);
 
       this.on('animationcomplete', () => {
-        if (canDestroy) this.destroy();
-        else this.setVisible(false);
+        if (canDestroy) {
+          this.destroy();
+        } else this.setVisible(false);
       });
 
       this.setData('isDead', true);
