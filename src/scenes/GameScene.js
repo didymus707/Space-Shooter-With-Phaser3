@@ -10,6 +10,8 @@ import ScrollingBackground from '../utilities/ScrollingBackground';
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
+    this.score = 0;
+    this.scoreText = undefined;
   }
 
   create() {
@@ -29,33 +31,31 @@ export default class GameScene extends Phaser.Scene {
 
     this.anims.create({
       key: 'exp3',
-      frames: this.anims.generateFrameNumbers('exp2'),
+      frames: this.anims.generateFrameNumbers('exp3'),
       frameRate: 30,
       repeat: 0,
     });
 
     this.anims.create({
       key: 'exp4',
-      frames: this.anims.generateFrameNumbers('exp2'),
+      frames: this.anims.generateFrameNumbers('exp4'),
       frameRate: 30,
       repeat: 0,
     });
 
     this.anims.create({
       key: 'exp5',
-      frames: this.anims.generateFrameNumbers('exp2'),
+      frames: this.anims.generateFrameNumbers('exp5'),
       frameRate: 30,
       repeat: 0,
     });
 
     this.anims.create({
       key: 'exp6',
-      frames: this.anims.generateFrameNumbers('exp2'),
+      frames: this.anims.generateFrameNumbers('exp6'),
       frameRate: 30,
       repeat: 0,
     });
-
-
 
     this.sfx = {
       explosions: [
@@ -149,6 +149,7 @@ export default class GameScene extends Phaser.Scene {
 
         enemy.explode(true);
         playerLaser.destroy();
+        this.score = this.updateScore(enemy);
       }
     });
 
@@ -168,12 +169,21 @@ export default class GameScene extends Phaser.Scene {
       }
     });
 
-    this.score = 0;
     this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
   }
 
   updateScore(enemy) {
-
+    if (enemy.getData('type') === 'BoatShip') {
+      this.sys.game.globals.score += 1;
+    } else if (enemy.getData('type') === 'ChaserShip' || enemy.getData('type') === 'AlienShip') {
+      this.sys.game.globals.score += 3;
+    } else if (enemy.getData('type') === 'BossShip') {
+      this.sys.game.globals.score += 5;
+    } else {
+      this.sys.game.globals.score += 7;
+    }
+    this.scoreText.setText(`Score: ${this.score}`);
+    return this.score;
   }
 
   getEnemiesByType(type) {
@@ -256,8 +266,8 @@ export default class GameScene extends Phaser.Scene {
       }
     }
 
-    for (let i = 0; i < this.backgrounds.length; i += 1) {
-      this.backgrounds[i].update();
-    }
+    // for (let i = 0; i < this.backgrounds.length; i += 1) {
+    //   this.backgrounds[i].update();
+    // }
   }
 }

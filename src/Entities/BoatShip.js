@@ -8,7 +8,7 @@ export default class BoatShip extends Entity {
     this.body.velocity.x -= Phaser.Math.Between(20, 50);
 
     this.shootTimer = this.scene.time.addEvent({
-      delay: 4500,
+      delay: 4000,
       callback: () => {
         const laser = new BoatLaser(
           this.scene,
