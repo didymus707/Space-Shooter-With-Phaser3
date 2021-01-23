@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
 import ScrollingBackground from '../utilities/ScrollingBackground';
-import getScores from '../ScoreApi';
+import { getScores } from '../ScoreApi';
 
 export default class HighscoreScene extends Phaser.Scene {
   constructor() {
