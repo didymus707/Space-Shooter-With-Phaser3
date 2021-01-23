@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
 import ScrollingBackground from '../utilities/ScrollingBackground';
-import { postScores, getScores, gameSetup } from '../ScoreApi';
+import { postScores, getScores } from '../ScoreApi';
 
 export default class GameOver extends Phaser.Scene {
   constructor() {
@@ -34,15 +34,13 @@ export default class GameOver extends Phaser.Scene {
       align: 'center',
     }).setOrigin(0.5);
 
-    // gameSetup();
-
     postScores(this.sys.game.globals.playerName, this.sys.game.globals.score);
 
     getScores().then(result => {
       result.sort((a, b) => b.score - a.score)
         .slice(0, 5)
         .map((game, i) => {
-          const text = `Player: ${game.user.toUpperCase()} | Score: ${game.score}`;
+          const text = `1. Player: ${game.user.toUpperCase()} | Score: ${game.score}`;
           this.add.text(config.width * 0.5, (85 * (i + 1.1)), text).setOrigin(0.5);
           return text;
         });

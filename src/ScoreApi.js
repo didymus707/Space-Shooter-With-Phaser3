@@ -11,7 +11,6 @@ const gameSetup = async () => {
       body: JSON.stringify({ name: 'Earth Defenders' }),
     });
     const response = await request.json();
-    console.log(response);
     return response;
   } catch (err) {
     throw new Error('Sorry! Game cannot be set up at the moment. Please, try again later');
@@ -35,7 +34,6 @@ const postScores = async (playerName, score) => {
 };
 
 const getScores = async () => {
-  const leaderBoard = [];
   try {
     const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/PHT4iu2zlyjMYtNNWZS7/scores/', {
       method: 'GET',
@@ -49,7 +47,6 @@ const getScores = async () => {
   } catch (error) {
     throw new Error('Sorry! Scores are not available at the moment. Please try again later!');
   }
-
 };
 
 export { gameSetup, postScores, getScores };
