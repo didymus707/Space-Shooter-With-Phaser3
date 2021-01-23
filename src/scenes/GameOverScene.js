@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
 import ScrollingBackground from '../utilities/ScrollingBackground';
-import { postScores, getScores } from '../ScoreApi';
+import { postScores, getScores, gameSetup } from '../ScoreApi';
 
 export default class GameOver extends Phaser.Scene {
   constructor() {
@@ -33,6 +33,8 @@ export default class GameOver extends Phaser.Scene {
       color: '#0f3',
       align: 'center',
     }).setOrigin(0.5);
+
+    // gameSetup();
 
     postScores(this.sys.game.globals.playerName, this.sys.game.globals.score);
 

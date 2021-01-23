@@ -2,23 +2,25 @@ import 'regenerator-runtime';
 
 const gameSetup = async () => {
   try {
-    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/', {
+    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name: 'Earth Defenders' }),
     });
     const response = await request.json();
+    console.log(response);
     return response;
   } catch (err) {
-    throw new Error('sorr! Game cannot be set up at the moment. Please, try again later');
+    throw new Error('Sorry! Game cannot be set up at the moment. Please, try again later');
   }
 };
 
 const postScores = async (playerName, score) => {
   try {
-    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/', {
+    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/PHT4iu2zlyjMYtNNWZS7/scores/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +37,7 @@ const postScores = async (playerName, score) => {
 const getScores = async () => {
   const leaderBoard = [];
   try {
-    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/QNx4z7IBfVVINUGksTiq/scores/', {
+    const request = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/PHT4iu2zlyjMYtNNWZS7/scores/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,10 +45,7 @@ const getScores = async () => {
     });
     const response = await request.json();
     const { result } = response;
-    result.forEach(data => {
-      leaderBoard.push([data.user, data.score]);
-    });
-    return leaderBoard;
+    return result;
   } catch (error) {
     throw new Error('Sorry! Scores are not available at the moment. Please try again later!');
   }
