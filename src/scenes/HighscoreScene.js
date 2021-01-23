@@ -2,39 +2,33 @@ import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
 import ScrollingBackground from '../utilities/ScrollingBackground';
-import postScores from '../ScoreApi';
+import getScores from '../ScoreApi';
 
-export default class GameOver extends Phaser.Scene {
+export default class HighscoreScene extends Phaser.Scene {
   constructor() {
-    super('GameOver');
+    super('Highscore');
   }
 
   create() {
-    this.sfx = {
-      btnOver: this.sound.add('sndBtnOver'),
-      btnDown: this.sound.add('sndBtnDown'),
-    };
+    this.text = this.add.text(300, 100, 'Highscores', { fontSize: 40 });
 
-    this.cameras.main.fadeIn(100, 0, 0, 0);
+    this.pilotScoreText = this.add.text(config.width * 0.5, 300, 'Pilot        Score');
 
-    this.title = this.add.text(this.game.config.width * 0.5, 32, 'GAME OVER', {
-      fontFamily: 'monospace',
-      fontSize: 48,
-      fontStyle: 'bold',
-      color: '#ffffff',
-      align: 'center',
+    getScores().then(result => {
+      result.sort((a, b) => b.score - a.score)
+        .slice(0, 5)
+        .map((game, i) => {
+          const text = `${i + 1}. ${game.user.toUpperCase()} ______ Score: ${game.score}`;
+          this.add.text(config.width * 0.5, (85 * (i + 1.1)), text, {
+            fontFamily: 'monospace',
+            fontSize: 32,
+            fontStyle: 'bold',
+            color: '#0f3',
+            align: 'center',
+          }).setOrigin(0.5);
+          return text;
+        });
     });
-    this.title.setOrigin(0.5);
-
-    this.highscoreLabel = this.add.text(this.game.config.width * 0.5, 64, `${this.sys.game.globals.playerName.toUpperCase()} SCORE: ${this.sys.game.globals.score}`, {
-      fontFamily: 'monospace',
-      fontSize: 32,
-      fontStyle: 'bold',
-      color: '#0f3',
-      align: 'center',
-    }).setOrigin(0.5);
-
-    postScores(this.sys.game.globals.playerName, this.sys.game.globals.score);
 
     this.restartButton = this.add.sprite(config.width / 2, config.height / 2, 'normal').setInteractive();
     this.restartText = this.add.text(config.width / 2, config.height / 2, 'Restart', { fontSize: '32px', fill: '#fff' });
@@ -59,11 +53,9 @@ export default class GameOver extends Phaser.Scene {
       });
     });
 
-    this.highscoreButton = new Button(this, 400, 500, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sfx.btnOver);
+    this.menuButton = new Button(this, 400, 500, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
 
-    this.menuButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
-
-    this.gameBackgrounds = ['bg2', 'bg3', 'bg4'];
+    this.gameBackgrounds = ['bg2', 'bg3'];
     this.backgrounds = [];
     for (let i = 0; i < 3; i += 1) {
       const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);

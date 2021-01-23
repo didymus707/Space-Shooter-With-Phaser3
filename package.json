@@ -4,8 +4,10 @@
   "description": "This is a Capstone project from the Microverse Curriculum. These projects are taken at the end of a curriculum. In this project I'll be using Phaser3 framework to build a space shooter game",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "start": "webpack serve --config webpack.config.js --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",

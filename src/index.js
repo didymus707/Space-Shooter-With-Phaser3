@@ -10,6 +10,7 @@ import GameScene from './scenes/GameScene';
 import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
 import GameOverScene from './scenes/GameOverScene';
+import HighscoreScene from './scenes/HighscoreScene';
 
 const config = {
   type: Phaser.AUTO,
@@ -51,6 +52,7 @@ class Game extends Phaser.Game {
     this.scene.add('PlayerName', PlayerNameScene);
     this.scene.add('Game', GameScene);
     this.scene.add('GameOver', GameOverScene);
+    this.scene.add('Highscore', HighscoreScene);
     this.scene.start('Boot');
   }
 }
