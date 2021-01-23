@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../Objects/Button';
+import ScrollingBackground from '../utilities/ScrollingBackground';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
@@ -13,17 +14,32 @@ export default class TitleScene extends Phaser.Scene {
       btnDown: this.sound.add('sndBtnDown'),
     };
 
-    this.add.image(400, 300, 'bg1');
     this.cameras.main.fadeIn(500, 0, 0, 0);
 
+    this.title = this.add.text(this.game.config.width * 0.5, 128, 'Earth Defenders', {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center',
+    });
+    this.title.setOrigin(0.5);
+
+    this.gameBackgrounds = ['bg4', 'bg3', 'bg2', 'bg5', 'bg6', 'bg7'];
+    this.backgrounds = [];
+    for (let i = 0; i < 7; i += 1) {
+      const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);
+      this.backgrounds.push(bg);
+    }
+
     // Game
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
+    this.gameButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
 
     // Options
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver, this.sfx.btnDown);
+    this.optionsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver, this.sfx.btnDown);
 
     // Credits
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sfx.btnOver, this.sfx.btnDown);
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 200, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sfx.btnOver, this.sfx.btnDown);
 
     // startting the music
     this.model = this.sys.game.globals.model;
@@ -34,4 +50,10 @@ export default class TitleScene extends Phaser.Scene {
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }
+
+  // update() {
+  //   for (let i = 0; i < this.backgrounds.length; i += 1) {
+  //     this.backgrounds[i].update();
+  //   }
+  // }
 }

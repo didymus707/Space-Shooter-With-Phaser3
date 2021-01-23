@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import Phaser from 'phaser';
 import config from '../config/config';
-import Button from '../Objects/Button';
+import ScrollingBackground from '../utilities/ScrollingBackground';
 
 export default class PlayerNameScene extends Phaser.Scene {
   constructor() {
@@ -18,6 +18,13 @@ export default class PlayerNameScene extends Phaser.Scene {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
     };
+
+    this.gameBackgrounds = ['bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
+    this.backgrounds = [];
+    for (let i = 0; i < 6; i += 1) {
+      const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);
+      this.backgrounds.push(bg);
+    }
 
     this.nameInput = this.add.text(0, 0, '', {
       color: '#fff',

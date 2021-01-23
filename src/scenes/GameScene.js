@@ -65,9 +65,9 @@ export default class GameScene extends Phaser.Scene {
       laser: this.sound.add('sndLaser'),
     };
 
-    this.gameBackgrounds = ['bg', 'bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
+    this.gameBackgrounds = ['bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
     this.backgrounds = [];
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 6; i += 1) {
       const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);
       this.backgrounds.push(bg);
     }

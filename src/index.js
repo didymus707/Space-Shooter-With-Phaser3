@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Phaser from 'phaser';
 import InputTextPlugin from 'phaser3-rex-plugins/plugins/inputtext-plugin';
 import Model from './Model';
