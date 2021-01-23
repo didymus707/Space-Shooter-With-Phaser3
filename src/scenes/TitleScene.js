@@ -12,17 +12,18 @@ export default class TitleScene extends Phaser.Scene {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
     };
+
     this.add.image(400, 300, 'bg1');
     this.cameras.main.fadeIn(500, 0, 0, 0);
 
     // Game
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'Game', this.sfx.btnOver);
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
 
     // Options
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver);
+    this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver, this.sfx.btnDown);
 
     // Credits
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sfx.btnOver);
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sfx.btnOver, this.sfx.btnDown);
 
     // startting the music
     this.model = this.sys.game.globals.model;

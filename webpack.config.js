@@ -32,7 +32,7 @@ module.exports = {
       },
     ],
   },
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Space Shooter',
