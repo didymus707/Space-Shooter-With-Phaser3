@@ -50,10 +50,4 @@ export default class TitleScene extends Phaser.Scene {
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }
-
-  // update() {
-  //   for (let i = 0; i < this.backgrounds.length; i += 1) {
-  //     this.backgrounds[i].update();
-  //   }
-  // }
 }

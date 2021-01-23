@@ -9,17 +9,11 @@ export default class GameOver extends Phaser.Scene {
 
   create() {
     this.add.text(config.width / 2, config.height / 2, 'Game Over');
-    this.gameBackgrounds = ['bg', 'bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
+    this.gameBackgrounds = ['bg2', 'bg3', 'bg4'];
     this.backgrounds = [];
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < 3; i += 1) {
       const bg = new ScrollingBackground(this, this.gameBackgrounds[i], i * 10);
       this.backgrounds.push(bg);
-    }
-  }
-
-  update() {
-    for (let i = 0; i < this.backgrounds.length; i += 1) {
-      this.backgrounds[i].update();
     }
   }
 }
