@@ -10,7 +10,6 @@ import ScrollingBackground from '../utilities/ScrollingBackground';
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
-    this.score = 0;
     this.scoreText = undefined;
   }
 
@@ -149,7 +148,7 @@ export default class GameScene extends Phaser.Scene {
 
         enemy.explode(true);
         playerLaser.destroy();
-        this.score = this.updateScore(enemy);
+        this.updateScore(enemy);
       }
     });
 
@@ -169,7 +168,7 @@ export default class GameScene extends Phaser.Scene {
       }
     });
 
-    this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#fff' });
+    this.scoreText = this.add.text(16, 16, `${this.sys.game.globals.playerName}: 0`, { fontSize: '32px', fill: '#fff' });
   }
 
   updateScore(enemy) {
@@ -182,8 +181,8 @@ export default class GameScene extends Phaser.Scene {
     } else {
       this.sys.game.globals.score += 7;
     }
-    this.scoreText.setText(`Score: ${this.score}`);
-    return this.score;
+    this.scoreText.setText(`${this.sys.game.globals.playerName}: ${this.sys.game.globals.score}`);
+    return this.sys.game.globals.score;
   }
 
   getEnemiesByType(type) {

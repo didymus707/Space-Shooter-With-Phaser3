@@ -37,6 +37,8 @@ export default class PlayerNameScene extends Phaser.Scene {
       this.nameInput.text = this.inputText.text;
     });
 
+    this.nameInput.text = this.inputText.text;
+
     this.text = this.add.text(160, 100, 'Enter Your Pilot Name', { fontSize: 40 });
 
     this.continueButton = this.add.sprite(config.width / 2, config.height / 2 + 50, 'normal').setInteractive();
