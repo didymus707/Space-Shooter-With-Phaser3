@@ -1,4 +1,5 @@
 import 'regenerator-runtime';
+import fetch from 'node-fetch';
 
 const gameSetup = async () => {
   try {

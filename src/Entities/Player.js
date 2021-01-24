@@ -47,7 +47,7 @@ export default class Player extends Entity {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1);
       } else {
         const laser = new PlayerLaser(this.scene, this.x, this.y);
-        laser.setScale(1.8);
+        laser.setScale(1.8).setOrigin(0.5, 1.7);
         this.scene.playerLasers.add(laser);
 
         this.scene.sfx.laser.play();

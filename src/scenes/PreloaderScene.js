@@ -58,7 +58,8 @@ export default class PreloaderScene extends Phaser.Scene {
 
   preload() {
     // adding logo image
-    this.add.image(110, 50, 'zenva');
+    this.add.image(300, 150, 'two').setScale(0.5).setAngle(-90);
+    this.add.image(550, 150, 'four').setScale(0.9).setAngle(-90);
 
     // display progress bar
     const progressBar = this.add.graphics();
