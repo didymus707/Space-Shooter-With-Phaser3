@@ -16,7 +16,7 @@ export default class TitleScene extends Phaser.Scene {
 
     this.cameras.main.fadeIn(500, 0, 0, 0);
 
-    this.title = this.add.text(this.game.config.width * 0.5, 128, 'Earth Defenders', {
+    this.title = this.add.text(this.game.config.width * 0.5, 64, 'Earth Defenders', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -33,7 +33,10 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     // Game
-    this.gameButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
+
+    // Highscore
+    this.highscoreButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sfx.btnOver);
 
     // Options
     this.optionsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver, this.sfx.btnDown);

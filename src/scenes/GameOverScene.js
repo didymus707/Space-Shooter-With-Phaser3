@@ -17,7 +17,7 @@ export default class GameOver extends Phaser.Scene {
 
     this.cameras.main.fadeIn(100, 0, 0, 0);
 
-    this.title = this.add.text(this.game.config.width * 0.5, 32, 'GAME OVER', {
+    this.title = this.add.text(this.game.config.width * 0.5, 64, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -26,7 +26,7 @@ export default class GameOver extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    this.highscoreLabel = this.add.text(this.game.config.width * 0.5, 64, `${this.sys.game.globals.playerName.toUpperCase()} SCORE: ${this.sys.game.globals.score}`, {
+    this.highscoreLabel = this.add.text(this.game.config.width * 0.5, 128, `${this.sys.game.globals.playerName.toUpperCase()} SCORE: ${this.sys.game.globals.score}`, {
       fontFamily: 'monospace',
       fontSize: 32,
       fontStyle: 'bold',

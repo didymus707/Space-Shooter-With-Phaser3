@@ -10,16 +10,19 @@ export default class HighscoreScene extends Phaser.Scene {
   }
 
   create() {
-    this.text = this.add.text(300, 100, 'Highscores', { fontSize: 40 });
+    this.sfx = {
+      btnOver: this.sound.add('sndBtnOver'),
+      btnDown: this.sound.add('sndBtnDown'),
+    };
 
-    this.pilotScoreText = this.add.text(config.width * 0.5, 300, 'Pilot        Score');
+    this.text = this.add.text(260, 15, 'Highscores', { fontSize: 40 });
 
     getScores().then(result => {
       result.sort((a, b) => b.score - a.score)
         .slice(0, 5)
         .map((game, i) => {
           const text = `${i + 1}. ${game.user.toUpperCase()} ______ Score: ${game.score}`;
-          this.add.text(config.width * 0.5, (85 * (i + 1.1)), text, {
+          this.add.text(config.width * 0.5, (90 * (i + 1.1)), text, {
             fontFamily: 'monospace',
             fontSize: 32,
             fontStyle: 'bold',
@@ -30,8 +33,8 @@ export default class HighscoreScene extends Phaser.Scene {
         });
     });
 
-    this.restartButton = this.add.sprite(config.width / 2, config.height / 2, 'normal').setInteractive();
-    this.restartText = this.add.text(config.width / 2, config.height / 2, 'Restart', { fontSize: '32px', fill: '#fff' });
+    this.restartButton = this.add.sprite(250, 550, 'normal').setInteractive();
+    this.restartText = this.add.text(450, 550, 'Restart', { fontSize: '32px', fill: '#fff' });
     Phaser.Display.Align.In.Center(this.restartText, this.restartButton);
 
     this.restartButton.on('pointerover', () => {
@@ -53,7 +56,14 @@ export default class HighscoreScene extends Phaser.Scene {
       });
     });
 
-    this.menuButton = new Button(this, 400, 500, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+    if (this.sys.game.globals.playerName === null) {
+      this.restartButton.setVisible(false);
+      this.restartText.setVisible(false);
+      this.menuButton = new Button(this, config.width / 2, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+    } else {
+      this.menuButton = new Button(this, 500, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+    }
+
 
     this.gameBackgrounds = ['bg2', 'bg3'];
     this.backgrounds = [];
