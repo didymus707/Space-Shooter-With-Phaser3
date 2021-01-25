@@ -77,7 +77,7 @@ export default class GameScene extends Phaser.Scene {
       this.game.config.width * 0.106,
       this.game.config.height * 0.47,
       'player',
-    ).setScale(0.08).setOrigin(1, 0.1);
+    ).setAngle(90).setScale(0.5).setOrigin(1, 0.1);
 
     // initializing the game controls
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
