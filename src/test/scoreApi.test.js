@@ -38,4 +38,3 @@ describe('Get game scores and player name', () => {
     expect(typeof data).toBe('object');
   });
 });
-
