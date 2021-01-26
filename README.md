@@ -163,9 +163,13 @@ If you want to make your own changes, modifications or improvements, go ahead an
 4. Push to the branch (git push origin [chosen-name])
 5. Create a new Pull Request
 
+## :clap::thumbsup: Acknowledgements
+- Jared York's amazing tutorial [here](https://learn.yorkcs.com/)
+- [Luis Zino amazing Phaser tutorial series](https://www.youtube.com/user/ricosushi)
+- [Opengameart](https://www.opengameart.org)
+
 ## 💂🏽💻 Creator
 
-Adewale Didymus Orotayo - [Github](https://github.com/didymus707)
 
 ## 🖐🏼 Show Your Support!
 Give a ⭐️ if you like this project!
