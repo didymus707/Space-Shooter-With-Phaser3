@@ -25,6 +25,10 @@ export default class TitleScene extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
+    this.add.text(2, this.game.config.height - 2,
+      'Game Controls\nMove with directional Keys \nShoot with the Spacebar\n')
+      .setOrigin(0, 1);
+
     this.gameBackgrounds = ['bg4', 'bg3', 'bg2', 'bg5', 'bg6', 'bg7'];
     this.backgrounds = [];
     for (let i = 0; i < 7; i += 1) {

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Phaser from 'phaser';
 import InputTextPlugin from 'phaser3-rex-plugins/plugins/inputtext-plugin';
+import style from '../styles/style.css';
 import Model from './Model';
 import BootScene from './scenes/BootScene';
 import PreloaderScene from './scenes/PreloaderScene';
