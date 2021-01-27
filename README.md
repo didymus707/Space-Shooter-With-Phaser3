@@ -1,38 +1,3 @@
-<!-- <p align="center">
-  <!-- <img src="previews/title-scene.gif" alt="Earth Defenders Main Menu" width="800" height="auto"> -->
-
-  <!-- <h1 align="center">🛸👾 Earth Defender</h1>
-
-
-<h3 align='center'>
-    Space Shooter Game, Made With Javascript, Phaser 3 and Webpack
-</h3>
-<p align="center">
-    <br />
-    <a href="https://.github.io//"><strong>🕹️ Play The Game »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com///archive/feature/readme.zip">Download this repository</a>
-    |
-    <a href="https://github.com///issues/new/choose">Report A Bug</a>
-    |
-    <a href="https://github.com///fork">Fork It</a>
-  </p>
-</p> -->
-
-
-<!-- ## 📑 Table of Contents
-  - [The Project Brief](https://github.com///tree/feature/readme#-the-project-brief)
-  - [The Nitty Gritty](https://github.com///tree/feature/readme#%EF%B8%8F-the-nitty-gritty)
-  - [Tools & Technology Used](https://github.com///tree/feature/readme#-tools--technology-used)
-  - [Setup & Use](https://github.com///tree/feature/readme#-setup--use)
-  - [Showcase](https://github.com///tree/feature/readme#-feature-previews)
-  - [Contributions, Issues and Forking](https://github.com///tree/feature/readme#%EF%B8%8F-contributions-issues-and-forking)
-  - [Creator](https://github.com///tree/feature/readme#-creator)
-  - [Show Your Support!](https://github.com///tree/feature/readme#-show-your-support)
-  - [Licensing](https://github.com///tree/feature/readme#%EF%B8%8F-licensing) --> -->
-
-
 ## 🔰 The Project Brief
 
 This is the Javascript Capstone Project, to be completed by students of [Microverse](https://www.microverse.org/).
@@ -48,7 +13,16 @@ The Capstone project was broken down into 5 particular days and achieving a part
 On the first day, I learnt about the Phaser library by going through some tutorials. I also created a project template by setting it up to use webpack in order to organize and bundle the code
 
 ### Day 2 - Game Design and Assembling Assets
-On day 2, I needed to design the game and get assets. All assets for this game are gotten from [OpenGameArt](https://opengameart.org/), a fantastic source for anyone looking for assets for non-commercialised games.
+On day 2, I needed to design the game and get assets. 
+- All assets for this game were gotten from [OpenGameArt](https://opengameart.org/), a fantastic source for anyone looking for assets for non-commercialised games.
+- I selected the environment(backgrounds) the actions willl be taking place(all the shooting in the games)
+- My player object and the enemy objects were selected
+- The difficulties in the enemies were assigned as there will be enemies moving slowly and just shooting whatever is infront of them, there are some with good enough speed also shooting what is infront of them and tere is one that will be chasing the player once he gets closer to the player. There is also sizes and speed of enemy weapons too
+- The actions my player object will be taking which is mainly shooting the enemies and evading their weapons
+- The points system for each enemy that has been hit
+- The game is over when my player is hit
+- The leader board for highscorers in the game
+
 
 ### Day 3 - Game Setup (Basic scene creation, player movement, game boot, etc)
 I needed to set up my scenes for the project, following a tutorial and other resources in creating these scenes:
