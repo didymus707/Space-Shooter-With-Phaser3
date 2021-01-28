@@ -28,7 +28,7 @@ test('Posts playername and scores returns a success string', async () => {
   expect(data).toHaveProperty('result');
 });
 
-test('Get playername and scores returns an object', async () => {
+it('Get playername and scores returns an object', async () => {
   const data = await getScores();
-  expect(typeof data).toBe('object');
+  expect(data[0]).toHaveProperty('score');
 });

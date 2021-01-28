@@ -56,6 +56,7 @@ export default class OptionsScene extends Phaser.Scene {
 
     if (this.model.soundOn === false) {
       this.soundButton.setTexture('mute');
+      // you could use this.sounds.setMute(true);
     } else {
       this.soundButton.setTexture('unmute');
     }
