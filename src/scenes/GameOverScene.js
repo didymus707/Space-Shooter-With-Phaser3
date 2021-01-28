@@ -10,6 +10,8 @@ export default class GameOver extends Phaser.Scene {
   }
 
   create() {
+    this.model = this.sys.game.globals.model;
+
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
@@ -42,7 +44,8 @@ export default class GameOver extends Phaser.Scene {
 
     this.restartButton.on('pointerover', () => {
       this.restartButton.setTexture('hover');
-      this.sfx.btnOver.play();
+      if (this.model.soundOn === false) this.sfx.btnOver.stop();
+      else this.sfx.btnOver.play();
     });
 
     this.restartButton.on('pointerout', () => {
@@ -51,6 +54,8 @@ export default class GameOver extends Phaser.Scene {
 
     this.restartButton.on('pointerdown', () => {
       this.restartButton.setTexture('pressed');
+      if (this.model.soundOn === false) this.sfx.btnDown.stop();
+      else this.sfx.btnDown.play();
       this.cameras.main.fadeOut(1000, 0, 0, 0);
       this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
         this.time.delayedCall(1000, () => {
@@ -59,9 +64,9 @@ export default class GameOver extends Phaser.Scene {
       });
     });
 
-    this.highscoreButton = new Button(this, 400, 500, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sfx.btnOver);
+    this.highscoreButton = new Button(this, 400, 500, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sfx.btnOver, this.sfx.btnDown);
 
-    this.menuButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+    this.menuButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver, this.sfx.btnDown);
 
     this.gameBackgrounds = ['bg2', 'bg3', 'bg4'];
     this.backgrounds = [];

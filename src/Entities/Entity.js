@@ -9,6 +9,7 @@ export default class Entity extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enableBody(this, 0);
     this.setData('type', type);
     this.setData('isDead', false);
+    this.model = this.scene.sys.game.globals.model;
   }
 
   explode(canDestroy) {
@@ -22,7 +23,11 @@ export default class Entity extends Phaser.GameObjects.Sprite {
       this.expArr = ['exp0', 'exp2', 'exp3', 'exp4', 'exp5', 'exp6'];
       const result = this.expArr[Phaser.Math.Between(0, 2)];
       this.play(result);
-      this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
+      if (this.model.soundOn === false) {
+        this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].stop();
+      } else {
+        this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
+      }
 
       if (this.shootTimer !== undefined) {
         if (this.shootTimer) this.shootTimer.remove(false);

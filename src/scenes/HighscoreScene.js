@@ -59,9 +59,9 @@ export default class HighscoreScene extends Phaser.Scene {
     if (this.sys.game.globals.playerName === null) {
       this.restartButton.setVisible(false);
       this.restartText.setVisible(false);
-      this.menuButton = new Button(this, config.width / 2, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+      this.menuButton = new Button(this, config.width / 2, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver, this.sfx.btnDown);
     } else {
-      this.menuButton = new Button(this, 500, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver);
+      this.menuButton = new Button(this, 500, 550, 'normal', 'hover', 'pressed', 'Menu', 'Title', this.sfx.btnOver, this.sfx.btnDown);
     }
 
 

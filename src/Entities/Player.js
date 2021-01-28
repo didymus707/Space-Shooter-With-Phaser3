@@ -50,7 +50,11 @@ export default class Player extends Entity {
         laser.setScale(1.8).setOrigin(0.9, 1.3);
         this.scene.playerLasers.add(laser);
 
-        this.scene.sfx.laser.play();
+        if (this.model.soundOn === false) {
+          this.scene.sfx.laser.stop();
+        } else {
+          this.scene.sfx.laser.play();
+        }
         this.setData('timerShootTick', 0);
       }
     }

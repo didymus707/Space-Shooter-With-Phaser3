@@ -14,6 +14,8 @@ export default class PlayerNameScene extends Phaser.Scene {
   }
 
   create() {
+    this.model = this.sys.game.globals.model;
+
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
@@ -54,7 +56,8 @@ export default class PlayerNameScene extends Phaser.Scene {
 
     this.continueButton.on('pointerover', () => {
       this.continueButton.setTexture('hover');
-      this.sfx.btnOver.play();
+      if (this.model.soundOn === false) this.sfx.btnOver.stop();
+      else this.sfx.btnOver.play();
     });
 
     this.continueButton.on('pointerout', () => {
@@ -63,6 +66,8 @@ export default class PlayerNameScene extends Phaser.Scene {
 
     this.continueButton.on('pointerdown', () => {
       this.continueButton.setTexture('pressed');
+      if (this.model.soundOn === false) this.sfx.btnDown.stop();
+      else this.sfx.btnDown.play();
       this.nameInput.text = this.inputText.text;
       if (this.nameInput.text.length > 0) {
         this.sys.game.globals.playerName = this.nameInput.text;

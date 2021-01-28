@@ -264,9 +264,5 @@ export default class GameScene extends Phaser.Scene {
         }
       }
     }
-
-    // for (let i = 0; i < this.backgrounds.length; i += 1) {
-    //   this.backgrounds[i].update();
-    // }
   }
 }

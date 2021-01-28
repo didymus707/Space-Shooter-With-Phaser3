@@ -14,6 +14,9 @@ export default class TitleScene extends Phaser.Scene {
       btnDown: this.sound.add('sndBtnDown'),
     };
 
+    this.gameSounds = this.sfx;
+    this.sys.game.globals.gameSounds = this.gameSounds;
+
     this.cameras.main.fadeIn(500, 0, 0, 0);
 
     this.title = this.add.text(this.game.config.width * 0.5, 64, 'Earth Defenders', {
@@ -37,16 +40,16 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     // Game
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sfx.btnOver, this.sfx.btnDown);
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 100, 'normal', 'hover', 'pressed', 'Play', 'PlayerName', this.sys.game.globals.gameSounds.btnOver, this.sys.game.globals.gameSounds.btnDown);
 
     // Highscore
-    this.highscoreButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sfx.btnOver);
+    this.highscoreButton = new Button(this, config.width / 2, config.height / 2, 'normal', 'hover', 'pressed', 'Highscore', 'Highscore', this.sys.game.globals.gameSounds.btnOver, this.sys.game.globals.gameSounds.btnDown);
 
     // Options
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sfx.btnOver, this.sfx.btnDown);
+    this.optionsButton = new Button(this, config.width / 2, config.height / 2 + 100, 'normal', 'hover', 'pressed', 'Options', 'Options', this.sys.game.globals.gameSounds.btnOver, this.sys.game.globals.gameSounds.btnDown);
 
     // Credits
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 200, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sfx.btnOver, this.sfx.btnDown);
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 200, 'normal', 'hover', 'pressed', 'Credits', 'Credits', this.sys.game.globals.gameSounds.btnOver, this.sys.game.globals.gameSounds.btnDown);
 
     // startting the music
     this.model = this.sys.game.globals.model;
